@@ -1,0 +1,108 @@
+
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div style="margin:3rem;">
+    <h2>Employee</h2>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">Employee ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">DOB</th>
+            <th scope="col">Email</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr >
+            <th scope="row"><input type="text" [(ngModel)] = "employees.EmployeeId" [disabled]="showEdit"></th>
+            <th scope="row"><input type="text" [(ngModel)] = "employees.FirstName" [disabled]="showEdit"></th>
+            <th scope="row"><input type="text" [(ngModel)] = "employees.LastName" [disabled]="showEdit"></th>
+            <th scope="row"><input type="text" [(ngModel)] = "employees.Salary" [disabled]="showEdit"></th>
+            <th scope="row"><input type="text" [(ngModel)] = "employees.DOB" [disabled]="showEdit"></th>
+            <th scope="row"><input type="text" [(ngModel)] = "employees.Email" [disabled]="showEdit"></th>
+            <th scope="row"><button (click)="EditEmp()" class="btn btn-primary" style="background-color:red;">Edit</button><button (click)="UpdateEmp()" class="btn btn-primary" style="background-color:green;" [disabled]="showEdit">Update</button></th>
+        </tr>
+        </tbody>
+    </table>
+    </div>
+    <div style="margin:3rem;">
+        <h2>Employees</h2>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Salary</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor = "let emp of multipleemployees;" appHighlight>
+                <th scope="row">{{emp.EmployeeId}}</th>
+                <th scope="row">{{emp.FirstName}}</th>
+                <th scope="row">{{emp.LastName}}</th>
+                <th scope="row">{{emp.Salary | currency:'USD'}}</th>
+                <th scope="row">{{emp.DOB }}</th>
+                <th scope="row">{{emp.Email}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin:3rem;">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Salary</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor = "let emp of multipleemployees;" appHighlight>
+                <th scope="row">{{emp.EmployeeId}}</th>
+                <th scope="row">{{emp.FirstName}}</th>
+                <th scope="row">{{emp.LastName}}</th>
+                <th scope="row">{{emp.Salary | currency:'USD'}}</th>
+                <th scope="row">{{emp.DOB | date: 'dd/MM/YYYY'}}</th>
+                <th scope="row">{{emp.Email}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="margin:3rem;">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                <th scope="col">Employee ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Salary</th>
+                <th scope="col">DOB</th>
+                <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor = "let emp of multipleemployees;" appHighlight>
+                <th scope="row">{{emp.EmployeeId}}</th>
+                <th scope="row">{{emp.FirstName}}</th>
+                <th scope="row">{{emp.LastName}}</th>
+                <th scope="row">{{emp.Salary | currency:'USD'}}</th>
+                <th scope="row">{{emp.DOB | date:"MMM d, y"|uppercase}}</th>
+                <th scope="row">{{emp.Email}}</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
